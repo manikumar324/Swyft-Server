@@ -65,3 +65,35 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ error: 'Failed to log in' });
   }
 };
+
+exports.updatePassword = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // Check if both email and password are provided
+    if (!email || !password) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
+    // Find the user by email
+    const user = await UserModel.findOne({ email });
+    if (!user) {
+      return res.status(401).json({ error: "Email doesn't exist" });
+    }
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    // Update the user's password
+    user.password = hashedPassword;
+
+    // Save the updated user data
+    await user.save();
+
+    // Respond with success message
+    return res.status(200).json({ success: true, message: "Password updated successfully" });
+  } catch (error) {
+    // Handle errors and send an appropriate response
+    return res.status(500).json({ error: "Internal Server Error" });
+  }
+};
