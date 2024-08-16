@@ -67,22 +67,23 @@ exports.loginUser = async (req, res) => {
 };
 
 exports.updatePassword = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, newPassword } = req.body;
 
   try {
     // Check if both email and password are provided
-    if (!email || !password) {
-      return res.status(400).json({ error: "All fields are required" });
+   if(!email || !newPassword){
+      return res.status(400).json({success: false, message: 'Email and Password Required' })  
     }
 
     // Find the user by email
-    const user = await UserModel.findOne({ email });
+    const user = await UserModel.findOne({ email:email });
+    console.log(user)
     if (!user) {
-      return res.status(401).json({ error: "Email doesn't exist" });
+      return res.status(401).json({ success: false, message: 'User not found' });
     }
 
     // Hash the new password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
 
     // Update the user's password
     user.password = hashedPassword;
@@ -94,6 +95,6 @@ exports.updatePassword = async (req, res) => {
     return res.status(200).json({ success: true, message: "Password updated successfully" });
   } catch (error) {
     // Handle errors and send an appropriate response
-    return res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ success: false, message: error.message });
   }
 };

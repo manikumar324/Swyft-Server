@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Swifty Care</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-image: url('https://your-image-link.com/header-background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .content {
+            background-image: url('https://your-image-link.com/content-background.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 30px;
+            color: #333;
+        }
+        .content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .content h2 {
+            margin-top: 0;
+            font-size: 22px;
+            color: #2c3e50;
+        }
+        .groceries-section {
+            margin-top: 30px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .grocery-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+        }
+        .grocery-item img {
+            width: 100vw;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .footer {
+            background-color: #ecf0f1;
+            color: #7f8c8d;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+        .footer p {
+            margin: 0;
+        }
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            Welcome to Swifty Care!
+        </div>
+        <div class="content">
+            <h2>Hello <%= name %>,</h2>
+            <p>Thank you for joining Swifty Care. We are excited to have you on board.</p>
+            <p>We strive to provide the best service possible, and we're here to assist you with any needs or questions you may have.</p>
+            <p><strong>Your Registered Email:</strong> <%= email %></p>
+            <p><strong>Your Suggestions:</strong> <%= suggestions %></p>
+
+            <!-- App Image Section -->
+            <div class="groceries-section">
+                <h3>Our App at a Glance</h3>
+                <div class="grocery-item">
+                    <img src="https://t4.ftcdn.net/jpg/05/89/90/83/360_F_589908398_6RaggcvYGDzFF0Oh2JAcepJHeU6XLJEZ.jpg" alt="Swifty Care App">
+                </div>
+            </div>
+
+            <p>If you have any additional questions, feel free to reply to this email or visit our <a href="https://swyftclient.onrender.com/contact">contact page</a> for more ways to reach out.</p>
+            <p>We look forward to supporting you on your journey with us.</p>
+        </div>
+        <div class="footer">
+            <p>Swifty Care &copy; 2024</p>
+            <p>
+                <a href="https://swyft-project.onrender.com">Visit our website</a> | 
+                <a href="mailto:swiftycare1@gmail.com">Contact Support</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

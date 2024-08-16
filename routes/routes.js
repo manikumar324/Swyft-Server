@@ -4,6 +4,7 @@ const userController = require("../controller/userController")
 const GroceryCntrller = require("../controller/groceriesController")
 const cartController = require('../controller/cartController')
 const OrderCntrl = require('../controller/orderController')
+const MailServices = require("../controller/MailservicesCntrl")
 
 router.post("/signup",userController.createUser)
 router.post("/signIn",userController.loginUser)
@@ -17,6 +18,6 @@ router.post("/length",cartController.getCartLength)
 router.post("/forgot-password",userController.updatePassword)
 router.post("/AddOrders",OrderCntrl.AddOrders)
 router.post("/orders",OrderCntrl.getOrders)
-
+router.post("/contact",MailServices.MailSend)
 
 module.exports = router ;
