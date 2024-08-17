@@ -23,8 +23,8 @@ exports.MailSend = async (req, res) => {
       port: 587, 
       secure: false, 
       auth: {
-        user: "swiftycare1@gmail.com",
-        pass: "aimommznaciqancb",
+        user: "swiftycare92@gmail.com",
+        pass: "mxdcctthaxtmbhom",
       },
       tls: {
         rejectUnauthorized: false, 
@@ -56,7 +56,7 @@ exports.MailSend = async (req, res) => {
 
     // Send email to user
     await transporter.sendMail({
-      from: "swiftycare1@gmail.com",
+      from: "swiftycare92@gmail.com",
       to: email,
       subject: "Welcome to Swifty Care",
       html: userHtml,
@@ -64,8 +64,8 @@ exports.MailSend = async (req, res) => {
 
     // Send email to admin (self)
     await transporter.sendMail({
-      from: "swiftycare1@gmail.com",
-      to: "swiftycare1@gmail.com", // Same as 'from' address
+      from: "swiftycare92@gmail.com",
+      to: "swiftycare92@gmail.com", // Same as 'from' address
       subject: "New User Inquiry",
       html: adminHtml,
     });
